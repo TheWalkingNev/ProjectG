@@ -1,14 +1,19 @@
-<h1>The GrosSip project !</h1> parcequ'on ne fait pas dans le potin fin.
-<ul>
-  <li><%= link_to 'Crée ton Gossip', create_gossip_path %></li>
-  <li><%= link_to 'La team', team_path %></li>
-  <li><%= link_to 'Contact', contact_path %></li>
-</ul>
+<header>
+  <h1>The GrosSip project !</h1>
+  <p>parcequ'on ne fait pas dans le potin fin.</p>
+  <ul>
+    <li><%= link_to 'Crée ton Gossip', create_gossip_path %></li>
+    <li><%= link_to 'La team', team_path %></li>
+    <li><%= link_to 'Contact', contact_path %></li>
+  </ul>
+</header>
 
-<% Gossip.all.each_with_index do |gossip, i| %>
-  <p>
-    <%= gossip.user.username %><br/>
-    <%= gossip.title %><br/>
-    <%= link_to 'Voir plus', gossips_path(i+1) %>
-  </p>
-<% end %>
+<section>
+  <% Gossip.all.each_with_index do |gossip, i| %>
+    <p>
+      <%= gossip.user.username %><br/>
+      <%= gossip.title %><br/>
+      <%= link_to 'Voir plus', gossips_path(i+1) %>
+    </p>
+  <% end %>
+</section>

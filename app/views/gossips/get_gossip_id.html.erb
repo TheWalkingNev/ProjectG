@@ -1,5 +1,16 @@
-<h1>Potin3000 !</h1>
-<p>Voici la page du potin n°<%= params[:gossip_id] %></p>
-<p>Son auteur : <%= Gossip.find(params[:gossip_id]).user.username  %></p>
-<p>Son titre : <%= Gossip.find(params[:gossip_id]).title %></p>
-<p>Le contenu du potin : <%= Gossip.find(params[:gossip_id]).content %></p>
+<header>
+  <h1>The GrosSip project !</h1>
+  <p>parcequ'on ne fait pas dans le potin fin.</p>
+  <ul>
+    <li><%= link_to 'Crée ton Gossip', create_gossip_path %></li>
+    <li><%= link_to 'La team', team_path %></li>
+    <li><%= link_to 'Contact', contact_path %></li>
+  </ul>
+</header>
+
+<section>
+  <p>Voici la page du gossip n° <%= params[:gossip_id] %></p>
+  <p>Auteur : <%= Gossip.find(params[:gossip_id]).user.username %></p>
+  <p>Titre : <%= Gossip.find(params[:gossip_id]).title %></p>
+  <p>Contenu : <%= Gossip.find(params[:gossip_id]).content %></p>
+</section>
