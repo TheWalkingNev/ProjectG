@@ -1,5 +1,6 @@
 <section>
   <p>Voici la page du gossip n° <%= params[:gossip_id] %></p>
+    <img class="" src="https://picsum.photos/300/300?image=<%= params[:gossip_id].to_i + 666 %>" alt="Card image cap">
   <p>Auteur : <%= link_to "#{Gossip.find(params[:gossip_id]).user.username}", view_user_path(Gossip.find(params[:gossip_id]).user.id) %></p>
   <p>Titre : <%= Gossip.find(params[:gossip_id]).title %></p>
   <p>Contenu : <%= Gossip.find(params[:gossip_id]).content %></p>

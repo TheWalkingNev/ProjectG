@@ -1,19 +1,10 @@
-<header>
-  <h1>The GrosSip project !</h1>
-  <p>parcequ'on ne fait pas dans le potin fin.</p>
-  <ul>
-    <li><%= link_to 'Crée ton Gossip', create_gossip_path %></li>
-    <li><%= link_to 'La team', team_path %></li>
-    <li><%= link_to 'Contact', contact_path %></li>
-  </ul>
-</header>
-
-<section>
-  <form action='/create_gossip/' method='POST'>
+<div class="d-flex justify-content-center">
+  <form action='/create_gossip/' method='POST' class="d-flex justify-content-center flex-column align-items-center">
         <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-        Balance ton blase : <input type='text' name='gossip_username'/><br/>
-        Balance ton title : <input type='text' name='gossip_title'/><br/>
-        Balance ton potin : <input type='text' name='gossip_content'/><br/>
+        <input class="form-control" type="text" name='gossip_username' placeholder="Nom de commère"><br/>
+        <input class="form-control" type="text" name='gossip_title' placeholder="Nomme ton histoire"><br/>
+        <input class="form-control" type="text" name='gossip_content' placeholder="Ici, ton gros secret"><br/>
         <input type='submit'/>
   </form>
-</section>
+</div>
+
