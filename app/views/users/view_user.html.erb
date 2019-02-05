@@ -1,17 +1,74 @@
-<section>
-  <p>Prénom : <%= User.find(params[:user_id]).first_name %></p>
-  <p>Nom : <%= User.find(params[:user_id]).last_name %></p>
-  <p>Pseudo : <%= User.find(params[:user_id]).username %></p>
-  <p>Age : <%= User.find(params[:user_id]).age %></p>
-  <p>Email : <%= User.find(params[:user_id]).email %></p>
-  <p>Ville : <%= User.find(params[:user_id]).city %></p>
-  <p>Description : <%= User.find(params[:user_id]).description %></p>
-  <p>Les gossips posté :</p>
-  <% User.find(42).gossips.each do |gossip| %>
-  <p>
-    <%= gossip.title %><br/>
-    <%= gossip.content %><br/>
-    <%= link_to 'Voir le gossip', gossips_path(gossip.id) %>
-  </p>
-  <% end %>
-</section>
+<div class="d-flex justify-content-center mt-5">
+    <!-- Card -->
+    <div class="card">
+
+      <h4 class="card-title d-flex justify-content-center mt-2"><%= User.find(params[:user_id]).first_name %> <%= User.find(params[:user_id]).last_name %> <span class="text-danger ml-2 mr-2"> aka </span> <%= User.find(params[:user_id]).username %></h4>
+
+      <!-- Card image -->
+      <div class="view overlay d-flex justify-content-center">
+        <img class="" src="https://picsum.photos/300/300?image=<%= params[:user_id].to_i + 666 %>" alt="Card image cap">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Button -->
+      <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3"></i></a>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title"></h4>
+        <hr>
+        <!-- Text -->
+        <p class="card-text"><%= User.find(params[:user_id]).description %></p>
+
+      </div>
+
+      <!-- Card footer -->
+      <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+        <ul class="list-unstyled list-inline font-small">
+          <li class="list-inline-item pr-2 white-text"><i class="fas fa-birthday-cake ml-2 mr-2"></i><%= User.find(params[:user_id]).age %> ans</li>
+          <li class="list-inline-item pr-2 white-text"><i class="far fa-envelope ml-2 mr-2"></i><%= User.find(params[:user_id]).email %></li>
+          <li class="list-inline-item pr-2 white-text"><i class="fas fa-map-marker-alt ml-2 mr-2"></i><%= User.find(params[:user_id]).city %></li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- Card -->
+</div>
+
+<h1 class="font-weight-bold d-flex justify-content-center mt-5"> All Gossips from <%= User.find(params[:user_id]).username %></h1>
+
+<section class="d-flex justify-content-around flex-wrap mt-5 ">
+  <% User.find(params[:user_id]).gossips.each do |gossip| %>
+
+
+<!-- Card Dark -->
+        <div class="card mb-5 w-25 d-flex justify-content-center">
+
+          <!-- Card image -->
+          <div class="view overlay w-25">
+              <img class="card-img-top" src="https://media.giphy.com/media/553Zz2lgkQHHgItjQi/giphy.gif" alt="Card image cap">
+
+          </div>
+
+          <!-- Card content -->
+          <div class="card-body elegant-color white-text rounded-bottom">
+
+            <!-- Social shares button -->
+            <a class="activator waves-effect mr-4"></a>
+            <!-- Title -->
+            <h4 class="card-title"><%= gossip.user.username %> <i class="fas fa-share-alt white-text d-flex justify-content-end"></i></h4>
+            <hr class="hr-light">
+            <!-- Text -->
+            <p class="card-text white-text mb-4"><%= gossip.title %></p>
+            <!-- Link -->
+            <a class="white-text d-flex justify-content-end"><h5><%= link_to 'Voir le gossip', gossips_path(gossip.id) %><i class="fas fa-angle-double-right ml-2 mr-2"></i></h5></a>
+
+          </div>
+
+        </div>
+    <% end %>
+  </section>

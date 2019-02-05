@@ -1,13 +1,32 @@
-<header>
-  <h1>The GrosSip project !</h1>
-  <p>parcequ'on ne fait pas dans le potin fin.</p>
-  <ul>
-    <li><%= link_to 'Crée ton Gossip', create_gossip_path %></li>
-    <li><%= link_to 'La team', team_path %></li>
-    <li><%= link_to 'Contact', contact_path %></li>
-  </ul>
-</header>
+<div class="d-flex justify-content-center mt-5">
+    <!-- Card -->
+    <div class="card">
 
-<section>
-  <p>Find me in app/views/users/get_username.html.erb</p>
-</section>
+      <h3 class="card-title d-flex justify-content-center mt-2 font-weight-bold">Bienvenue <%= params[:username] %></h3>
+
+      <!-- Card image -->
+      <div class="view overlay d-flex justify-content-center">
+        <img class="" src="https://media.giphy.com/media/l4JyOCNEfXvVYEqB2/giphy.gif" alt="Card image cap">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Button -->
+      <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3"></i></a>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title"></h4>
+        <hr>
+        <!-- Text -->
+        <p class="card-text d-flex justify-content-center">C'est un grand jour pour toi, tu vas retourner l'internet !</p>
+        <p class="card-text d-flex justify-content-center"></p>
+
+      </div>
+
+    </div>
+    <!-- Card -->
+</div>
