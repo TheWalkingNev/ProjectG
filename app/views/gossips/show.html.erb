@@ -16,20 +16,20 @@
 		  <!-- Card content -->
 		  <div class="card-body">
 
-		  	<h4 class="card-title"><%= link_to "#{Gossip.find(params[:gossip_id]).user.username}", view_user_path(Gossip.find(params[:gossip_id]).user.id) %></h4>
+		  	<h4 class="card-title"><%= link_to "#{@gossip_user_username}", user_path(@gossip_user_id) %></h4>
 
 		    <!-- Title -->
-		    <h4 class="card-title"><%= Gossip.find(params[:gossip_id]).title %></h4>
+		    <h4 class="card-title"><%= @gossip_title %></h4>
 		    <hr>
 		    <!-- Text -->
-		    <p class="card-text"><%= Gossip.find(params[:gossip_id]).content %></p>
+		    <p class="card-text"><%= @gossip_content %></p>
 
 		  </div>
 
 		  <!-- Card footer -->
 		  <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
 		    <ul class="list-unstyled list-inline font-small">
-		      <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1 ml-2 mr-2"></i><%= Gossip.find(params[:gossip_id]).created_at %></li>
+		      <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1 ml-2 mr-2"></i><%= @gossip_created_at %></li>
 		    </ul>
 		  </div>
 

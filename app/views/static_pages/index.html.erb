@@ -1,35 +1,3 @@
-<h1 class="d-flex justify-content-center mt-5 mb-5 font-weight-bold">All Gossips written</h1>
-
-<section class="d-flex justify-content-between flex-wrap">
-  <% Gossip.all.each do |gossip| %>
-				<!-- Card Dark -->
-				<div class="card mb-5">
-
-				  <!-- Card image -->
-				  <div class="view overlay">
-				    <img class="card-img-top" src="https://picsum.photos/300/300?image=<%= gossip.user.id+666 %>" alt="Card image cap">
-				    <a>
-				      <div class="mask rgba-white-slight"></div>
-				    </a>
-				  </div>
-
-				  <!-- Card content -->
-				  <div class="card-body elegant-color white-text rounded-bottom">
-
-				    <!-- Social shares button -->
-				    <a class="activator waves-effect mr-4"></a>
-				    <!-- Title -->
-				    <h4 class="card-title"><%= gossip.user.username %><i class="fas fa-share-alt white-text d-flex justify-content-end"></i></h4>
-				    <hr class="hr-light">
-				    <!-- Text -->
-				    <p class="card-text white-text mb-4"><%= gossip.title %></p>
-				    <!-- Link -->
-				    <a class="white-text d-flex justify-content-end"><h5><%= link_to 'Voir plus', gossips_path(gossip.id) %><i class="fas fa-angle-double-right ml-2 mr-2"></i></h5></a>
-
-				  </div>
-
-				</div>
-				<!-- Card Dark -->
-  <% end %>
+<section>
+  <p>Le nouvel index sera à faire ici !!</p>
 </section>
-
