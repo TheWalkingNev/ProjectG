@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # REST ou CRUD #bientôt un poll sur slack.. mais attention c'est limité à 100/mois il va falloir être vif début mars !!
   resources :gossips
   resources :users
+  resources :cities, only: [:index, :show]
 end

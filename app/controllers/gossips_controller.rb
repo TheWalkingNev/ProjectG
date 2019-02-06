@@ -11,6 +11,7 @@ class GossipsController < ApplicationController
     @gossip_title = Gossip.find(params[:id]).title
     @gossip_content = Gossip.find(params[:id]).content
     @gossip_created_at = Gossip.find(params[:id]).created_at
+    @gossip_comments = Gossip.find(params[:id]).comments
   end
 
   def new
@@ -23,7 +24,7 @@ class GossipsController < ApplicationController
     # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
     User.create(username: params['gossip_username'])
     Gossip.create(user_id: User.last.id, title: params['gossip_title'], content: params['gossip_content'])
-    redirect_to '/'
+    redirect_to root_path
   end
 
   def edit

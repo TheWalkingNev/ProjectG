@@ -34,3 +34,12 @@ puts '=== User DB created ==='
 	print '.'
 end
 puts '=== Gossip DB created ==='
+
+50.times do |l|
+	comment = Comment.create!(
+    user_id: User.all.sample.id,
+		gossip_id: Gossip.all.sample.id,
+    content: Faker::DumbAndDumber.quote)
+	print '.'
+end
+puts '=== Comment DB created ==='

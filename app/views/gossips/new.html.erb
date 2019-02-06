@@ -1,32 +1,9 @@
-<div class="d-flex justify-content-center mt-5">
-		<!-- Card -->
-		<div class="card">
-
-		  <!-- Card image -->
-		  <div class="view overlay">
-		    <img class="card-img-top" src="https://media.giphy.com/media/iDJuQR0UmiqOI/giphy.gif" alt="Card image cap">
-		    <a>
-		      <div class="mask rgba-white-slight"></div>
-		    </a>
-		  </div>
-
-		  <!-- Button -->
-		  <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3"></a>
-
-		  <!-- Card content -->
-		  <div class="card-body">
-
-		  <!-- Card footer -->
-			<div class="d-flex justify-content-center mt-5">
-			  <form action='/gossips/' method='POST' class="d-flex justify-content-center flex-column align-items-center">
-			        <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-			        <input class="form-control" type="text" name='gossip_username' placeholder="Nom de commère"><br/>
-			        <input class="form-control" type="text" name='gossip_title' placeholder="Nomme ton histoire"><br/>
-			        <input class="form-control" type="text" name='gossip_content' placeholder="Ici, ton gros secret"><br/>
-			        <button type="submit" class="btn btn-secondary btn-lg btn-block">Balance ton histoire salace</button>
-			  </form>
-			</div>
-
-
-		<!-- Card -->
-</div>
+<section>
+	<form action='/gossips/' method='POST' class="d-flex justify-content-center flex-column align-items-center">
+	      <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+	      <input class="form-control" type="text" name='gossip_username' placeholder="Nom de commère"><br/>
+	      <input class="form-control" type="text" name='gossip_title' placeholder="Nomme ton histoire"><br/>
+	      <input class="form-control" type="text" name='gossip_content' placeholder="Ici, ton gros secret"><br/>
+	      <button type="submit" class="btn btn-secondary btn-lg btn-block">Balance ton histoire salace</button>
+	</form>
+</section>

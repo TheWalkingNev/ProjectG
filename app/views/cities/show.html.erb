@@ -1,0 +1,9 @@
+<section>
+  <%= link_to "Voir la liste de toutes les villes", cities_path %><br>
+  <p>Ville : <%= @city_name %></p>
+  <p>Zip code : <%= @city_zip_code %></p>
+  <p>Les users venant de cette ville :<br>
+  <% @city_users.each do |user| %>
+    <%= user.username %><br>
+  <% end %></p>
+</section>

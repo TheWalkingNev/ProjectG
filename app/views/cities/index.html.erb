@@ -1,0 +1,8 @@
+<h1>All Cities</h1>
+
+<section>
+  <% City.all.each do |city| %>
+    <p>Ville : <%= link_to "#{city.name}", city_path(city.id) %><br>
+    Zip code : <%= city.zip_code %></p>
+  <% end %>
+</section>
