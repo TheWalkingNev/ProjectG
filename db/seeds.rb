@@ -7,8 +7,8 @@ ActiveRecord::Base.connection.reset_pk_sequence!('gossips')
 
 50.times do |i|
 	city = City.create!(
-    name: Faker::Pokemon.move,
-    zip_code: 3300 + i)
+    name: Faker::ElderScrolls.city,
+    zip_code: Faker::Address.zip_code)
 	print '.'
 end
 puts '=== City DB created ==='

@@ -25,6 +25,7 @@ RSpec.describe User, type: :model do
 
     describe "gossips" do
       it { expect(@user).to have_many(:gossips) }
+      it { expect(@user).to belong_to(:city) }
     end
 
   end

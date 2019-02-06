@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :city do
-    name { "MyString" }
-    zip_code { "MyString" }
+    name { Faker::ElderScrolls.city }
+    zip_code { Faker::Address.zip_code }
   end
 end
