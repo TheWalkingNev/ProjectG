@@ -4,7 +4,6 @@ class GossipsController < ApplicationController
   end
 
   def show
-    # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
     @gossip_id = params[:id]
     @gossip_user_username = Gossip.find(params[:id]).user.username
     @gossip_user_id = Gossip.find(params[:id]).user.id
@@ -21,12 +20,8 @@ class GossipsController < ApplicationController
   end
 
   def create
-    # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
-    # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
-    # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
-    User.create(username: params['gossip_username'])
-    Gossip.create(user_id: User.last.id, title: params['gossip_title'], content: params['gossip_content'])
-    redirect_to root_path
+    Gossip.new(user_id: User.last.id, title: params[:gossip_title], content: params[:gossip_content]).save
+    redirect_to gossips_path
   end
 
   def edit

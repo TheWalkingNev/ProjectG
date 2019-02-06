@@ -4,9 +4,18 @@
 	<%= @gossip_created_at %>
 	par <%= link_to "#{@gossip_user_username}", user_path(@gossip_user_id) %>
 	de <%= link_to "#{@gossip_user_city}", city_path(@gossip_user_city_id) %></p>
+
+	<form action='/comments/' method='POST' class="d-flex justify-content-center flex-column align-items-center">
+    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+		<input type='hidden' name='gossip_id' value='<%= @gossip_id %>'>
+    <input class="form-control" type="text" name='gossip_content' placeholder="Défoules-toi personne ne te vois derrière ton ordinateur"><br/>
+    <button type="submit" class="btn btn-secondary btn-lg btn-block">Poster le commentaire</button>
+	</form>
+
 	<% @gossip_comments.each do |comment| %>
 		<p>Commentaire de <%= link_to "#{comment.user.username}", user_path(comment.user.id) %> de
 		<%= link_to "#{comment.user.city.name}", city_path(comment.user.city_id) %><br>
 		<%= comment.content %></p>
 	<% end %>
+
 </section>

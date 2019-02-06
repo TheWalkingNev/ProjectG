@@ -1,7 +1,7 @@
 <h1>All Gossips written</h1>
 
 <section>
-  <% Gossip.all.each do |gossip| %>
+  <% Gossip.all.reverse.each do |gossip| %>
     <p><%= gossip.user.username %><br>
   	<%= gossip.title %><br>
   	<%= link_to 'Voir plus', gossip_path(gossip.id) %></p>

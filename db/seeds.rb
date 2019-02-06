@@ -5,6 +5,16 @@ ActiveRecord::Base.connection.reset_pk_sequence!('cities')
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('gossips')
 
+# City.create!(name: 'dimension a, dimension b je ne le sais pas', zip_code: 696969)
+# User.create!(
+# 	city_id: 1,
+# 	first_name: 'Fazerman',
+# 	last_name: ' ',
+# 	username: 'Pussy Destroyer',
+# 	email: 'allonsniquerdesputes@bg.superbg',
+# 	age: 12,
+# 	description: "Salut c'est Fazerman j'ai créé cette chaîne pour vous faire partager mes passions : jeux vidéo, moto et peinture. Une fois par mois ou plus Fazerman postera une nouvelle vidéo sur les thèmes suivants : jeux vidéo (Starcraft, Hearthstone, League of Legends). Ces vidéos s'adresse aux joueurs débutants et- aux amateurs de game fun. Merci à ceux qui me suivent et me suivront. Tous les commentaires constructifs sont les bienvenus, abonnez-vous, likez et partagez !!!")
+
 50.times do |i|
 	city = City.create!(
     name: Faker::ElderScrolls.city,
