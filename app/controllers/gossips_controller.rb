@@ -8,6 +8,8 @@ class GossipsController < ApplicationController
     @gossip_id = params[:id]
     @gossip_user_username = Gossip.find(params[:id]).user.username
     @gossip_user_id = Gossip.find(params[:id]).user.id
+    @gossip_user_city = Gossip.find(params[:id]).user.city.name
+    @gossip_user_city_id = Gossip.find(params[:id]).user.city_id
     @gossip_title = Gossip.find(params[:id]).title
     @gossip_content = Gossip.find(params[:id]).content
     @gossip_created_at = Gossip.find(params[:id]).created_at

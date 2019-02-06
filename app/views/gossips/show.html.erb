@@ -1,10 +1,12 @@
 <section>
-	<p><%= link_to "#{@gossip_user_username}", user_path(@gossip_user_id) %><br>
-	<%= @gossip_title %><br>
+	<p><%= @gossip_title %><br>
 	<%= @gossip_content %><br>
-	<%= @gossip_created_at %></p><br><br><br>
+	<%= @gossip_created_at %>
+	par <%= link_to "#{@gossip_user_username}", user_path(@gossip_user_id) %>
+	de <%= link_to "#{@gossip_user_city}", city_path(@gossip_user_city_id) %></p>
 	<% @gossip_comments.each do |comment| %>
-		<p><%= link_to "#{comment.user.username}", user_path(comment.user.id) %><br>
+		<p>Commentaire de <%= link_to "#{comment.user.username}", user_path(comment.user.id) %> de
+		<%= link_to "#{comment.user.city.name}", city_path(comment.user.city_id) %><br>
 		<%= comment.content %></p>
 	<% end %>
 </section>

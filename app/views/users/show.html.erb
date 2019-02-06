@@ -1,12 +1,12 @@
 <section>
-  <%= @user_first_name %> <%= @user_last_name %> <span class="text-danger ml-2 mr-2"> aka </span> <%= @user_username %>
-  <%= @user_description %>
-  <%= @user_age %> ans
-  <%= @user_email %>
-  <%= @user_city %>
+  <p><%= @user_first_name %> <%= @user_last_name %> <span class="text-danger ml-2 mr-2"> aka </span> <%= @user_username %><br>
+  <%= @user_description %><br>
+  <%= @user_age %> ans<br>
+  <%= @user_email %><br>
+  <%= link_to "#{@user_city_name}", city_path(@user_city_id) %><br></p>
+  <p>Tout ses gossips <br>
   <% @user_gossips.each do |gossip| %>
-    <%= gossip.user.username %>
     <%= gossip.title %>
-    <%= link_to 'Voir le gossip', gossip_path(gossip.id) %>
-  <% end %>
+    <%= link_to 'Voir le gossip', gossip_path(gossip.id) %><br>
+  <% end %></p>
 </section>

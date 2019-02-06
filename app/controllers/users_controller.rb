@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user_first_name = User.find(params[:id]).first_name
     @user_last_name = User.find(params[:id]).last_name
     @user_username = User.find(params[:id]).username
+    @user_city_name = User.find(params[:id]).city.name
+    @user_city_id = User.find(params[:id]).city.id
     @user_age = User.find(params[:id]).age
     @user_email = User.find(params[:id]).email
     @user_description = User.find(params[:id]).description
