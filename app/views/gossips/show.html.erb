@@ -1,10 +1,32 @@
-<section>
-	<p><%= link_to "#{@gossip_user_username}", user_path(@gossip_user_id) %><br>
-	<%= @gossip_title %><br>
-	<%= @gossip_content %><br>
-	<%= @gossip_created_at %></p><br><br><br>
-	<% @gossip_comments.each do |comment| %>
-		<p><%= link_to "#{comment.user.username}", user_path(comment.user.id) %><br>
-		<%= comment.content %></p>
-	<% end %>
+<section class="d-flex flex-column text-center align-items-center mt-3">
+
+  <div class="card w-25 mb-5 border-0">
+
+	  <div class="card-body"><a href="<%= user_path(@gossip_user_id) %>"><h3><%= @gossip_user_username %></h3></a></div>
+
+	  <div class="card-body"><h6><%= @gossip_title %></h6></div> 
+
+	  <div class="card-body"><%= @gossip_content %></div> 
+
+  	<div class="card-footer d-flex justify-content-around">
+
+  		Posté le <%= @gossip_created_at %>
+
+  	</div>
+
+	</div>
+
+</section>
+
+<!-- Commentaires !-->
+
+<section class="d-flex justify-content-center">
+
+	<div class="w-50">
+		<% @gossip_comments.each do |comment| %>
+			<p><%= link_to "#{comment.user.username}", user_path(comment.user.id) %><br>
+			<%= comment.content %></p>
+		<% end %>
+	</div>
+
 </section>

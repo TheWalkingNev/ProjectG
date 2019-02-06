@@ -1,12 +1,33 @@
-<section>
-  <%= @user_first_name %> <%= @user_last_name %> <span class="text-danger ml-2 mr-2"> aka </span> <%= @user_username %>
-  <%= @user_description %>
-  <%= @user_age %> ans
-  <%= @user_email %>
-  <%= @user_city %>
-  <% @user_gossips.each do |gossip| %>
-    <%= gossip.user.username %>
-    <%= gossip.title %>
-    <%= link_to 'Voir le gossip', gossip_path(gossip.id) %>
-  <% end %>
+<section class="d-flex flex-column text-center align-items-center mt-3 mb-5">
+
+  <div class="card-body"><h3><%= @user_first_name %> <%= @user_last_name %> <span class="text-danger ml-2 mr-2"> aka </span> <%= @user_username %></h3></div>
+
+
+
+  <div class="card w-25 border-0">
+
+    <div class="card-body"><h6><%= @user_description %></h6></div> 
+
+  </div>
+
+  <div class="card-body d-flex justify-content-around mb-5"><h6>
+
+  <%= @user_age %> ans -
+  <i class="far fa-envelope mr-2"></i><%= @user_email %> - 
+  <i class="fas fa-map-marker-alt mr-2"></i><%= @user_city %>
+
+  </h6></div>
+
+</section>
+
+<section class="d-flex justify-content-center mt-5">
+
+  <div class="w-50">
+    <% @user_gossips.each do |gossip| %>
+      <p><%= gossip.user.username %> <%= gossip.title %><br>
+      <%= gossip.content %><br/>
+      <%= link_to 'Voir le gossip', gossip_path(gossip.id) %></p>
+    <% end %>
+  </div>
+
 </section>
