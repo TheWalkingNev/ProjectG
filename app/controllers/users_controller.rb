@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     @user_age = User.find(params[:id]).age
     @user_email = User.find(params[:id]).email
     @user_description = User.find(params[:id]).description
+    @user_city = User.find(params[:id]).city.name
     @user_gossips = User.find(params[:id]).gossips
   end
 

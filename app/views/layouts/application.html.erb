@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>ProjectG</title>
-       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+       <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.2.1/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-kW2H6mf/72/MKlmwB//Zcwg0ckiegojPx/fio14/rpoYw2LMhULTn5YhS1QyrQfx" crossorigin="anonymous">
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <%= csrf_meta_tags %>
@@ -14,24 +14,25 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" <%= link_to 'The GrosSip Project', root_path %><i class="fas fa-cookie-bite text-danger mr-3" style="font-size: 1.5em;"></i></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <a href="<%= root_path %>" class="navbar-brand">The GrosSip Project</a>
+      <i class="fas fa-cookie-bite text-danger mr-3" style="font-size: 1.5em;"></i>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse ml-3" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" <%= link_to 'Tout les Gossips', gossips_path %> <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a href="<%= gossips_path %>"class="nav-link">Tout les Gossips<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" <%= link_to 'Crée ton Gossip', new_gossip_path %>
+        <a href="<%= new_gossip_path %>" class="nav-link">Crée ton Gossip</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" <%= link_to 'La team', team_path %></a>
+        <a href="<%= team_path %>" class="nav-link">Team</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" <%= link_to 'Contact', contact_path %></a>
+        <a href="<%= contact_path %>" class="nav-link">Contact</a>
       </li>
     </ul>
   </div>

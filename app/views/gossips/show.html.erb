@@ -1,21 +1,45 @@
-<section>
-	<p><%= @gossip_title %><br>
-	<%= @gossip_content %><br>
-	<%= @gossip_created_at %>
-	par <%= link_to "#{@gossip_user_username}", user_path(@gossip_user_id) %>
-	de <%= link_to "#{@gossip_user_city}", city_path(@gossip_user_city_id) %></p>
+<section class="d-flex flex-column text-center align-items-center mt-3">
 
-	<form action='/comments/' method='POST' class="d-flex justify-content-center flex-column align-items-center">
-    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-		<input type='hidden' name='gossip_id' value='<%= @gossip_id %>'>
-    <input class="form-control" type="text" name='gossip_content' placeholder="Défoules-toi personne ne te vois derrière ton ordinateur"><br/>
-    <button type="submit" class="btn btn-secondary btn-lg btn-block">Poster le commentaire</button>
-	</form>
+  <div class="card w-25 mb-5 border-0">
 
-	<% @gossip_comments.each do |comment| %>
-		<p>Commentaire de <%= link_to "#{comment.user.username}", user_path(comment.user.id) %> de
-		<%= link_to "#{comment.user.city.name}", city_path(comment.user.city_id) %><br>
-		<%= comment.content %></p>
-	<% end %>
+	  <div class="card-body"><a href="<%= user_path(@gossip_user_id) %>"><h3><%= @gossip_user_username %></h3></a></div>
+
+	  <div class="card-body"><h6><%= @gossip_title %></h6></div>
+
+	  <div class="card-body"><%= @gossip_content %></div>
+
+  	<div class="card-footer d-flex justify-content-around">
+
+  		Posté le <%= @gossip_created_at %>
+
+  	</div>
+
+	</div>
+<%= link_to "#{@gossip_user_city}", city_path(@gossip_user_city_id) %>
+</section>
+
+<!-- Commentaires !-->
+
+<section class="d-flex justify-content-center">
+
+	<div class="w-50">
+		<% @gossip_comments.each do |comment| %>
+			<p><%= link_to "#{comment.user.username}", user_path(comment.user.id) %><br>
+			<%= comment.content %></p>
+		<% end %>
+	</div>
 
 </section>
+
+<form action='/comments/' method='POST' class="d-flex justify-content-center flex-column align-items-center">
+	<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+	<input type='hidden' name='gossip_id' value='<%= @gossip_id %>'>
+	<input class="form-control" type="text" name='gossip_content' placeholder="Défoules-toi personne ne te vois derrière ton ordinateur"><br/>
+	<button type="submit" class="btn btn-secondary btn-lg btn-block">Poster le commentaire</button>
+</form>
+
+<% @gossip_comments.each do |comment| %>
+	<p>Commentaire de <%= link_to "#{comment.user.username}", user_path(comment.user.id) %> de
+	<%= link_to "#{comment.user.city.name}", city_path(comment.user.city_id) %><br>
+	<%= comment.content %></p>
+<% end %>
