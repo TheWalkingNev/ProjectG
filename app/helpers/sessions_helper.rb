@@ -7,4 +7,10 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
+  def logged_in?(user)
+    if user == nil
+    else
+      current_user
+    end
+  end
 end

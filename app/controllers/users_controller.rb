@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, except: [:new, :create]
+
   def index
   end
 
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
     city = City.new(name: params['user_city'], zip_code: rand(1..99999))
     save_city = true
 
-    if City.find_by(name: params['user_city']).id # Vérifie si la ville existe déjà dans la DB
+    if City.find_by(name: params['user_city']) # Vérifie si la ville existe déjà dans la DB
       what_city_id = City.find_by(name: params['user_city']).id
       save_city = false
     else

@@ -1,4 +1,6 @@
 class GossipsController < ApplicationController
+  before_action :authenticate_user, except: [:index]
+
   def index
     # Affichage de l'ensemble des gossips.
   end
@@ -21,8 +23,7 @@ class GossipsController < ApplicationController
 
   def create
     # Fonction appelée lors de la création d'un gossip.
-    User.create(username: params['gossip_username'])
-    @new_gossip = Gossip.new(user_id: User.last.id, title: params['gossip_title'], content: params['gossip_content'])
+    @new_gossip = Gossip.new(user_id: current_user.id, title: params['gossip_title'], content: params['gossip_content'])
 
     if @new_gossip.save
       redirect_to gossips_path

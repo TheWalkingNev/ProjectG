@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user
+
   def create
-    @comment = Comment.new(gossip_id: params[:gossip_id], user_id: User.last.id, content: params['comment_content'])
+    @comment = Comment.new(gossip_id: params[:gossip_id], user_id: current_user.id, content: params['comment_content'])
     if @comment.save      # si ça marche, le comment est save et le user est redirigé vers la même page avec un message success
       flash[:success] = 'Commentaire ajouté avec succés.'
       redirect_to gossip_path(params[:gossip_id])

@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  before_action :authenticate_user, only: [:welcome]
+
   def index # landing page
   end
 

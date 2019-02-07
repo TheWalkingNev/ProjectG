@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def new # Page de connexion
   end
 
@@ -13,5 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy # Fermeture de la session
+    session.delete(:user_id)
+    redirect_to root_path
   end
 end

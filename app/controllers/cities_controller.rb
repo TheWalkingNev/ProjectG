@@ -1,4 +1,6 @@
 class CitiesController < ApplicationController
+  before_action :authenticate_user
+
   def index
     # Liste de toutes les villes.
   end
