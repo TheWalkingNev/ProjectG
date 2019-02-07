@@ -1,0 +1,12 @@
+<h2 class="text-center mt-3"> Connexion </h2>
+
+<section class="d-flex flex-column text-center align-items-center mt-5">
+	<div class="card w-25 mb-5 border-0">
+		<form action='<%= sessions_path %>' method='POST' class="d-flex justify-content-center flex-column align-items-center">
+      <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+      <input class="form-control" type="text" name='user_email' placeholder="Email"><br/>
+      <input class="form-control" type="text" name='user_password' placeholder="Mot de passe"><br/>
+      <button type="submit" class="btn btn-secondary btn-lg btn-block">Connexion</button>
+		</form>
+	</div>
+</section>

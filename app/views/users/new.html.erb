@@ -1,0 +1,19 @@
+<h2 class="text-center mt-3"> Inscription </h2>
+
+<section class="d-flex flex-column text-center align-items-center mt-5">
+	<div class="card w-25 mb-5 border-0">
+		<form action='<%= users_path %>' method='POST' class="d-flex justify-content-center flex-column align-items-center">
+		      <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+          <input class="form-control" type="text" name='user_first_name' placeholder="Prénom"><br/>
+          <input class="form-control" type="text" name='user_last_name' placeholder="Nom"><br/>
+		      <input class="form-control" type="text" name='user_username' placeholder="Pseudo"><br/>
+          <input class="form-control" type="text" name='user_email' placeholder="Email"><br/>
+          <input class="form-control" type="text" name='user_age' placeholder="Age"><br/>
+          <input class="form-control" type="text" name='user_city' placeholder="Ville"><br/>
+          <textarea class="form-control" type="text" name='user_description' placeholder="Dis-nous en un peu plus sur toi"></textarea><br/>
+          <input class="form-control" type="text" name='user_password' placeholder="Mot de passe"><br/>
+          <input class="form-control" type="text" name='user_confirm_password' placeholder="Retapes ton mot de passe"><br/>
+		      <button type="submit" class="btn btn-secondary btn-lg btn-block">Je m'inscris</button>
+		</form>
+	</div>
+</section>

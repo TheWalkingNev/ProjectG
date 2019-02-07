@@ -7,4 +7,7 @@ class StaticPagesController < ApplicationController
 
   def team  # The Super Fuck Friends
   end
+
+  def welcome # Welcome screen
+  end
 end
