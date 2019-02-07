@@ -2,11 +2,13 @@
   <%= link_to "Voir la liste de toutes les villes", cities_path %><br>
   <p>Ville : <%= @city_name %></p>
   <p>Zip code : <%= @city_zip_code %></p>
-  <p>Les users venant de cette ville et leurs gossips :<br>
+  <p>Les users venant de cette ville et leurs gossips :</p>
   <% @city_users.each do |user| %>
     <%= link_to "#{user.username}", user_path(user.id) %><br>
+    <p>
      <% user.gossips.each do |gossip| %>
-      <%= link_to "#{gossip.title}", gossip_path(gossip.id) %>
+      <%= link_to "#{gossip.title}", gossip_path(gossip.id) %><br>
      <% end %>
-  <% end %></p>
+    </p>
+  <% end %>
 </section>

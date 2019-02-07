@@ -16,7 +16,7 @@
 		      <tr>
 		        <td><a class="" href="<%= user_path(gossip.user.id) %>"><%= gossip.user.username %></a></td>
 		        <td><a class="" href="<%= gossip_path(gossip.id) %>"><%= gossip.title %></a></td>
-		        <td><i class="far fa-comments"></i></td>
+		        <td><i class="far fa-comments mr-2"></i><%= gossip.comments.count %></td>
 		        <td><a href="<%= edit_gossip_path(gossip.id) %>">Editer Gossip</a></td>
 		      </tr>
 		    </tbody>

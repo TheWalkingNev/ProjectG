@@ -1,10 +1,10 @@
 class StaticPagesController < ApplicationController
-  def index
+  def index # landing page
   end
 
-  def contact
+  def contact # ET téléphone maison
   end
 
-  def team
+  def team  # The Super Fuck Friends
   end
 end
