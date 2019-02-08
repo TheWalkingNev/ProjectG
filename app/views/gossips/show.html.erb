@@ -1,9 +1,10 @@
 <section class="d-flex flex-column text-center align-items-center mt-3">
 
-  <div class="card w-25 mb-5 border-0">
+	  <div class="card-body"><h3><%= @gossip_title %></h3></div>
 
-	  <div class="card-body"><a href="<%= user_path(@gossip_user_id) %>"><h3><%= @gossip_user_username %></h3></a></div>
+	  <div class="card-body w-75"><h6><%= @gossip_content %></h6></div>
 
+<<<<<<< HEAD
 	  <div class="card-body"><h6><%= @gossip_title %></h6>
       <%= link_to like_gossip_path(@gossip_id), method: :put do %>
         <% if !current_user.liked? @gossip %>
@@ -14,22 +15,21 @@
         <%= @gossip.get_upvotes.size %>
       <% end %>
     </div>
+=======
+	<div class="card w-25 border-0">
+>>>>>>> master
 
-	  <div class="card-body"><%= @gossip_content %></div>
+		<div class="card-body d-flex justify-content-center mb-5">
 
-  	<div class="card-footer d-flex justify-content-around">
+	  		<a href="<%= user_path(@gossip_user_id) %>" class="mr-2 text-decoration-none"><%= @gossip_user_username %></a> le <%= @gossip_created_at.strftime("%d-%m-%Y") %> à <a href="<%= city_path(@gossip_user_city_id) %>" class="text-decoration-none ml-2"><%= @gossip_user_city_name %> <i class="fas fa-map-marker-alt mr-2 text-danger"></i></a>
 
-  		Posté le <%= @gossip_created_at %>
-
-  	</div>
-
+	  </div>
 	</div>
-<%= link_to "#{@gossip_user_city_name}", city_path(@gossip_user_city_id) %>
 </section>
 
 <!-- Commentaires !-->
 
-<section class="d-flex justify-content-center">
+<section class="d-flex justify-content-center mt-3">
 
 	<div class="w-50">
 
@@ -37,12 +37,12 @@
     	<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
     	<input type='hidden' name='gossip_id' value='<%= @gossip_id %>'>
     	<input class="form-control" type="text" name='comment_content' placeholder="Défoules-toi personne ne te vois derrière ton ordinateur"><br/>
-    	<button type="submit" class="btn btn-secondary btn-lg btn-block">Poster le commentaire</button>
+    	<button type="submit" class="btn btn-secondary btn-lg btn-block w-50">Poster le commentaire</button>
     </form>
 
-		<% @gossip_comments.each do |comment| %>
-			<p><%= link_to "#{comment.user.username}", user_path(comment.user.id) %><br>
-			<%= comment.content %></p>
+		<% @gossip_comments.reverse.each do |comment| %>
+			<p class="mt-3"><%= link_to "#{comment.user.username}", user_path(comment.user.id), class: 'text-decoration-none' %><br>
+			<i class="far fa-comment text-danger mr-2"></i><%= comment.content %></p>
 		<% end %>
 	</div>
 

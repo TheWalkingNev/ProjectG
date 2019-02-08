@@ -14,8 +14,8 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a href="<%= root_path %>" class="navbar-brand">The GrosSip Project</a>
-      <i class="fas fa-cookie-bite text-danger mr-3" style="font-size: 1.5em;"></i>
+      <a href="<%= root_path %>" class="navbar-brand">The GrosSip Project<i class="fas fa-coffee text-danger ml-3 mr-1"></i></a>
+      
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,7 +23,7 @@
   <div class="collapse navbar-collapse ml-3" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a href="<%= gossips_path %>"class="nav-link">Tout les Gossips<span class="sr-only">(current)</span></a>
+        <a href="<%= gossips_path %>"class="nav-link">Tous les Gossips<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a href="<%= new_gossip_path %>" class="nav-link">Crée ton Gossip</a>
@@ -33,9 +33,12 @@
       </li>
       <li class="nav-item">
         <a href="<%= contact_path %>" class="nav-link">Contact</a>
-      </li>
+      </li></ul>
+  </div>
+  <div class="justify-content-end">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%=logged_in?(current_user) ? (link_to "A plus les boloss", session_path(session[:user_id]), method: :delete) : nil %>
+        <span class="nav-link text-danger"><%=logged_in?(current_user) ? (link_to "Déconnexion", session_path(session[:user_id]), class: 'text-danger text-decoration-none', method: :delete) : (link_to "Connexion", new_session_path, class: 'text-decoration-none text-success') %></span>
       </li>
     </ul>
   </div>

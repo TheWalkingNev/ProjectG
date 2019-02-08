@@ -13,21 +13,19 @@
   <div class="card-body d-flex justify-content-around mb-5"><h6>
 
   <%= @user_age %> ans -
-  <i class="far fa-envelope mr-2"></i><%= @user_email %> -
-  <i class="fas fa-map-marker-alt mr-2"></i><%= @user_city %>
+  <i class="far fa-envelope mr-2 text-danger"></i><%= @user_email %> -
+  <i class="fas fa-map-marker-alt mr-2 text-danger"></i><a href="<%= city_path(@user_city_id) %>" class="text-decoration-none"><%= @user_city_name %></a>
 
   </h6></div>
-
-<p><%= link_to "#{@user_city_name}", city_path(@user_city_id) %><br></p>
 </section>
 
 <section class="d-flex justify-content-center mt-5">
 
   <div class="w-50">
-    <% @user_gossips.each do |gossip| %>
-      <p><%= gossip.title %><br>
+    <% @user_gossips.reverse.each do |gossip| %>
+      <p><a href="<%= gossip_path(gossip.id) %>" class="text-decoration-none"><%= gossip.title %></a><br>
       <%= gossip.content %><br/>
-      <%= link_to 'Voir le gossip', gossip_path(gossip.id) %></p>
+      <span class="d-flex justify-content-end"><%= gossip.created_at.strftime("%d-%m-%Y") %></span></p>
     <% end %>
   </div>
 

@@ -25,7 +25,7 @@ Voila le moment que tu attendais impatiemment depuis que tu as quitté le 15-18 
 ---
 ## Tester en avant-première
 #### Installation
-Encore plus simple à installer que l'étagére "Billy" qui tu as acheté chez IKEA
+Encore plus simple à installer que l'étagére "Billy" que tu as acheté chez IKEA
  En *HTTPS* par ici :
 
     -git clone https://github.com/TheWalkingNev/ProjectG.git
@@ -43,6 +43,8 @@ Je sais que ça n'a pas toujours était facile pour toi alors voilà une liste d
     -- db:seed  
     -- rspec  
     -- rails s (c'est comme *"rails server"*... de rien c'est moi qui régale)  
+
+Ou alors ne te prends ne te prends pas la tête plus longtemps et fonces sur la version live (https://grossiproject.herokuapp.com/).
 
 Et voilà c'est parti, c'est toi le king des internets, tu vas pouvoir balancer du sale tout en commandant ton McDo version XXL favoris.
 

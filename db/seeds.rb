@@ -5,7 +5,10 @@ Comment.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('cities')
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('gossips')
+<<<<<<< HEAD
 ActiveRecord::Base.connection.reset_pk_sequence!('comments')
+=======
+>>>>>>> master
 
 50.times do |i|
 	city = City.create!(
@@ -17,14 +20,14 @@ puts '=== City DB created ==='
 
 50.times do |j|
 	user = User.create!(
-		city_id: City.all.sample.id,
+	city_id: City.all.sample.id,
     first_name: Faker::Superhero.prefix,
     last_name: Faker::BackToTheFuture.character,
     username: Faker::DragonBall.character,
     email: Faker::Internet.email,
     age: rand(12..120),
     description: Faker::StrangerThings.quote,
-		password: "password#{j}")
+	password: "password#{j}")
   print '.'
 end
 puts '=== User DB created ==='
