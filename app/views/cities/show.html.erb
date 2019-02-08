@@ -1,14 +1,35 @@
+<section> 
+  <div class="text-center">
+    <h2 class="mt-5"><i class="fas fa-map-marker-alt mr-2 text-danger"></i><%= @city_name %></h2>
+    <p><%= @city_zip_code %></p>
+  </div>
+
+    <p class="text-center mt-5">Les utilisateurs venant de cette ville et leurs gossips :</p>
+
+</section>
+
 <section>
-  <%= link_to "Voir la liste de toutes les villes", cities_path %><br>
-  <p>Ville : <%= @city_name %></p>
-  <p>Zip code : <%= @city_zip_code %></p>
-  <p>Les users venant de cette ville et leurs gossips :</p>
-  <% @city_users.each do |user| %>
-    <%= link_to "#{user.username}", user_path(user.id) %><br>
-    <p>
-     <% user.gossips.each do |gossip| %>
-      <%= link_to "#{gossip.title}", gossip_path(gossip.id) %><br>
-     <% end %>
-    </p>
-  <% end %>
+  
+<div class="container mt-5">  
+  <a href="<%= cities_path %>" class="text-decoration-none d-flex justify-content-end">Liste de toutes les villes</a><br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Pseudo</th>
+          <th>Gossips</th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr>
+            <% @city_users.reverse.each do |user| %>
+            <td><a href="<%= user_path(user.id) %>" class="text-decoration-none"><%= user.username %></a></td>
+              <% user.gossips.reverse.each do |gossip| %>
+                <td class="d-flex flex-column"><a class="text-decoration-none" href="<%= gossip_path(gossip.id) %>"><%= gossip.title %></a></td>
+              <% end %>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+
 </section>

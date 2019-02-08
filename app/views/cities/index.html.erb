@@ -1,8 +1,25 @@
-<h1>All Cities</h1>
+<section>
+	<h2 class="text-center mt-5">Toutes les villes</h2>
+</section>
 
 <section>
-  <% City.all.each do |city| %>
-    <p>Ville : <%= link_to "#{city.name}", city_path(city.id) %><br>
-    Zip code : <%= city.zip_code %></p>
-  <% end %>
+	<div class="container mt-5">  
+	  <table class="table">
+	    <thead>
+	      <tr>
+	        <th>Ville <i class="fas fa-city ml-2 text-danger"></i></th>
+	        <th>Code postal <i class="fab fa-acquisitions-incorporated text-danger ml-2"></i></th>
+	      </tr>
+	    </thead>
+	    
+		    <tbody>
+		      <tr>
+		      	<% City.all.each do |city| %>
+		        <td><a href="city_path(city.id)" class="text-decoration-none"><%= city.name %></a></td>
+		        <td><%= city.zip_code %></td>
+		      </tr>
+		    </tbody>
+	    <% end %>
+	  </table>
+	</div>
 </section>

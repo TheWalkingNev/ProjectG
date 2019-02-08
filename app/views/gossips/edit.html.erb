@@ -1,10 +1,14 @@
-<h1>Edite ton Gossip</h1>
+<section class="d-flex flex-column text-center align-items-center mt-5">
 
-<div class="">
+<h2>Edite ton Gossip</h2>
+
+<div class="w-50 mt-5">
 
 	<%= form_for @gossip do |f| %>
 
 		<div class="form-group">
+
+			<label class="d-flex justify-content-start">Titre</label>
 
 			<%= f.text_field :title, class: 'form-control' %>
 
@@ -12,20 +16,22 @@
 
 		<div class="form-group">
 
-			<label>Contenu de l'article</label>
+			<label class="d-flex justify-content-start">Contenu du gossip</label>
 
 			<%= f.text_area :content, class: 'form-control' %>
 
 		</div>
 
-		<div class="form-group">
+		<div class="form-group mt-3">
 
-			<button type="submit" class="btn btn-warning">Edit Gossip</button>
+			<button type="submit" class="btn btn-secondary mr-5">Modifier <i class="fas fa-pencil-alt ml-1"></i></button>
 
-			<a href="<%= gossip_path(@gossip.id) %>" data-method="DELETE" class="btn btn-warning">Delete Gossip</a>
+			<a href="<%= gossip_path(@gossip.id) %>" data-method="DELETE" class="btn btn-secondary text-danger">Supprimer <i class="fas fa-trash-alt ml-1"></i></a>
 
 		</div>
 
 <% end %>
 
 </div>
+
+</section>
