@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user
+  flash = { success: "It worked!", danger: "It failed." }
 
   def create
     @comment = Comment.new(gossip_id: params[:gossip_id], user_id: current_user.id, content: params['comment_content'])

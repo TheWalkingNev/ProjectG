@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, except: [:new, :create]
+  flash = { success: "It worked!", danger: "It failed." }
 
   def index
   end
@@ -37,14 +38,18 @@ class UsersController < ApplicationController
     if save_city == true
       if city.save && user.save
         redirect_to welcome_path(user.id)
+        flash[:success] = "BRAVO"
       else
         render new_user_path
+        flash[:danger] = "ECHEC"
       end
     else
       if user.save
         redirect_to welcome_path(user.id)
+        flash[:success] = "BRAVO"
       else
         render new_user_path
+        flash[:danger] = "ECHEC"
       end
     end
   end

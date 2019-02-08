@@ -1,5 +1,6 @@
 class GossipsController < ApplicationController
   before_action :authenticate_user, except: [:index]
+  flash = { success: "It worked!", danger: "It failed." }
 
   def index # Affichage de l'ensemble des gossips.
   end
@@ -25,7 +26,9 @@ class GossipsController < ApplicationController
 
     if @new_gossip.save
       redirect_to gossips_path
+      flash[:success] = "BRAVO"
     else
+      flash[:danger] = "ECHEC"
       render new_gossip_path
     end
   end
@@ -49,12 +52,14 @@ class GossipsController < ApplicationController
     gossip_params = params.require(:gossip).permit(:title, :content)
     @gossip.update(gossip_params)
     redirect_to gossip_path
+    flash[:success] = "BRAVO"
   end
 
   def destroy # Suppresion d'un gossip. Mieux qu'un rollback.
     set_gossip
     @gossip.destroy
     redirect_to gossips_path
+    flash[:success] = "BRAVO"
   end
 
   private
