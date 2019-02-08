@@ -7,5 +7,6 @@ FactoryBot.define do
     email { Faker::Internet.email }
     age { rand(12..120) }
     description { Faker::StrangerThings.quote }
+    password { Faker::Compass.quarter_wind }
   end
 end

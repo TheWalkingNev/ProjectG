@@ -1,19 +1,12 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe CitiesController, type: :controller do
+RSpec.describe UsersController, :type => :controller do
 
-  describe "GET #index" do
-    it "returns http success" do
-      get :index
-      expect(response).to have_http_status(:success)
-    end
+  before(:each) do
+    @city = FactoryBot.create(:city)
   end
 
-  describe "GET #show" do
-    it "returns http success" do
-      get :show
-      expect(response).to have_http_status(:success)
-    end
+  it "has a valid factory" do
+    expect(build(:city)).to be_valid
   end
-
 end

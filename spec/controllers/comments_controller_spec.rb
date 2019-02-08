@@ -1,26 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe CommentsController, type: :controller do
+RSpec.describe Comment, type: :model do
 
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
-    end
+  before(:each) do
+    @comment = FactoryBot.create(:comment)
   end
 
-  describe "GET #update" do
-    it "returns http success" do
-      get :update
-      expect(response).to have_http_status(:success)
-    end
+  it "has a valid factory" do
+    expect(build(:comment)).to be_valid
   end
 
-  describe "GET #destroy" do
-    it "returns http success" do
-      get :destroy
-      expect(response).to have_http_status(:success)
+  context "validation" do
+
+    it "is valid with valid attributes" do
+      expect(@comment).to be_a(Comment)
     end
   end
-
 end

@@ -4,7 +4,16 @@
 
 	  <div class="card-body"><a href="<%= user_path(@gossip_user_id) %>"><h3><%= @gossip_user_username %></h3></a></div>
 
-	  <div class="card-body"><h6><%= @gossip_title %></h6></div>
+	  <div class="card-body"><h6><%= @gossip_title %></h6>
+      <%= link_to like_gossip_path(@gossip_id), method: :put do %>
+        <% if !current_user.liked? @gossip %>
+          <i class="far fa-heart"></i>
+        <% else %>
+          <i class="fas fa-heart text-danger"></i>
+        <% end %>
+        <%= @gossip.get_upvotes.size %>
+      <% end %>
+    </div>
 
 	  <div class="card-body"><%= @gossip_content %></div>
 

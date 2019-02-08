@@ -1,12 +1,11 @@
 City.destroy_all
 User.destroy_all
 Gossip.destroy_all
+Comment.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('cities')
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('gossips')
-
-# City.create!(name: 'dimension a, dimension b je ne le sais pas', zip_code: 696969)
-# User.new(city_id: City.last.id + 1, first_name: 'Fazerman', last_name: 'bg', username: 'Pussy Destroyer', email: 'allonsniquerdesputes@bg.superbg', age: 12, description: "Salut c'est Fazerman j'ai créé cette chaîne pour vous Fazerman", password: 'mabite')
+ActiveRecord::Base.connection.reset_pk_sequence!('comments')
 
 50.times do |i|
 	city = City.create!(

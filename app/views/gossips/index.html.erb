@@ -17,36 +17,24 @@
 		        <td><a class="" href="<%= user_path(gossip.user.id) %>"><%= gossip.user.username %></a></td>
 		        <td><a class="" href="<%= gossip_path(gossip.id) %>"><%= gossip.title %></a></td>
 		        <td><i class="far fa-comments mr-2"></i><%= gossip.comments.count %></td>
-		        <td><a href="<%= edit_gossip_path(gossip.id) %>">Editer Gossip</a></td>
+		        <td>
+						<% if logged_in?(current_user) %>
+							<%= current_user.id == gossip.user_id ? (link_to "Edit Gossip", edit_gossip_path(gossip.id)) : nil %>
+							<%= current_user.id == gossip.user_id ? (link_to "Delete Gossip", gossip_path(gossip.id), method: :delete) : nil %>
+							<%= link_to like_gossip_path(gossip.id), method: :put do %>
+								<% if !current_user.liked? gossip %>
+									<i class="far fa-heart"></i>
+								<% else %>
+									<i class="fas fa-heart text-danger"></i>
+								<% end %>
+								<%= gossip.get_upvotes.size %>
+							<% end %>
+						<% end %>
+						</td>
 		      </tr>
 		    </tbody>
 	    <% end %>
 	  </table>
 	</div>
 </section>
-
-<h1 class="text-center mt-3 mb-3">Liste de tous les Gossips</h1>
-
-
-
-<section class="d-flex flex-column text-center align-items-center">
-  <% Gossip.all.reverse.each do |gossip| %>
-	  <div class="card w-25 mb-5">
-
-		  <div class="card-body"><%= gossip.user.username %></div>
-
-		  <div class="card-body"><%= gossip.title %></div>
-
-	  	<div class="card-footer d-flex justify-content-around">
-
-	  		<!-- Crée le <%= gossip.created_at %> !-->
-	  		<a href="<%= gossip_path(gossip.id) %>">See More</a>
-	  		<a href="<%= edit_gossip_path(gossip.id) %>">Edit Gossip</a>
-	  		<!-- Modifié le <%= gossip.updated_at %> !-->
-
-	  	</div>
-
-		</div>
-
-  <% end %>
-</section>
+<script src="vote.js.erb" charset="utf-8"></script>

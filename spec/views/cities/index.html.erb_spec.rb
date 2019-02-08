@@ -1,5 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe "cities/index.html.erb", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+  RSpec.describe "gossips/show" do
+
+    it "matches the Rails environment by using symbols for keys" do
+      [:controller, :action].each { |k| expect(controller.request.path_parameters.keys).to include(k) }
+    end
+  end

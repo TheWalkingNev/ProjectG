@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       what_city_id = City.find_by(name: params['user_city']).id
       save_city = false
     else
-      what_city_id = City.last.id + 1
+      City.count == 0 ? what_city_id = 1 : what_city_id = City.last.id + 1
     end
 
     user = User.new(city_id: what_city_id, first_name: params['user_first_name'], last_name: params['user_last_name'], username: params['user_username'], email: params['user_email'], age: params['user_age'], description: params['user_description'], password: params['user_password'])

@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   get 'login', to: 'static_pages#login'
   get 'welcome/:id', to: 'static_pages#welcome', as: 'welcome'
   # REST ou CRUD #bientôt un poll sur slack.. mais attention c'est limité à 100/mois il va falloir être vif début mars !!
-  resources :gossips
+  resources :gossips do
+    member do
+      put 'like' => 'gossips#vote'
+    end
+  end
   resources :users
   resources :cities, only: [:index, :show]
   resources :comments, only: [:create, :update, :destroy]
