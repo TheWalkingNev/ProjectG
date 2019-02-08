@@ -4,7 +4,6 @@
 
 	  <div class="card-body w-75"><h6><%= @gossip_content %></h6></div>
 
-<<<<<<< HEAD
 	  <div class="card-body"><h6><%= @gossip_title %></h6>
       <%= link_to like_gossip_path(@gossip_id), method: :put do %>
         <% if !current_user.liked? @gossip %>
@@ -15,16 +14,12 @@
         <%= @gossip.get_upvotes.size %>
       <% end %>
     </div>
-=======
-	<div class="card w-25 border-0">
->>>>>>> master
 
 		<div class="card-body d-flex justify-content-center mb-5">
 
 	  		<a href="<%= user_path(@gossip_user_id) %>" class="mr-2 text-decoration-none"><%= @gossip_user_username %></a> le <%= @gossip_created_at.strftime("%d-%m-%Y") %> à <a href="<%= city_path(@gossip_user_city_id) %>" class="text-decoration-none ml-2"><%= @gossip_user_city_name %> <i class="fas fa-map-marker-alt mr-2 text-danger"></i></a>
 
 	  </div>
-	</div>
 </section>
 
 <!-- Commentaires !-->

@@ -5,10 +5,7 @@ Comment.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('cities')
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('gossips')
-<<<<<<< HEAD
 ActiveRecord::Base.connection.reset_pk_sequence!('comments')
-=======
->>>>>>> master
 
 50.times do |i|
 	city = City.create!(

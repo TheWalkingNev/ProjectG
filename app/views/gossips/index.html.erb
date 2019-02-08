@@ -1,7 +1,7 @@
 <section class="mt-5">
 	<div class="container w-50">
 		<h2 class="text-center">Liste de tous les Gossips</h2>
-		
+
     <h6 class="d-flex justify-content-center">À ce jour il y a <span class="text-danger ml-3 mr-2"><%= User.all.count %></span> utilisateurs</h6>
     <div class="container w-50 mr-5">
       <ul class="navbar-nav d-flex justify-content-start ml-3">
@@ -13,7 +13,7 @@
   	</div>
 	</div>
 
-	<div class="container mt-5">  
+	<div class="container mt-5">
 	  <table class="table">
 	    <thead>
 	      <tr>
@@ -28,7 +28,6 @@
 		      <tr>
 		        <td><a class="" href="<%= user_path(gossip.user.id) %>"><%= gossip.user.username %></a></td>
 		        <td><a class="" href="<%= gossip_path(gossip.id) %>"><%= gossip.title %></a></td>
-<<<<<<< HEAD
 		        <td><i class="far fa-comments mr-2"></i><%= gossip.comments.count %></td>
 		        <td>
 						<% if logged_in?(current_user) %>
@@ -44,17 +43,9 @@
 							<% end %>
 						<% end %>
 						</td>
-=======
-		        <td><i class="far fa-comments mr-2"></i><span class="text-danger"><%= gossip.comments.count %></span></td>
-		        <td><a href="<%= edit_gossip_path(gossip.id) %>">Editer Gossip</a></td>
->>>>>>> master
 		      </tr>
 		    </tbody>
 	    <% end %>
 	  </table>
 	</div>
 </section>
-<<<<<<< HEAD
-<script src="vote.js.erb" charset="utf-8"></script>
-=======
->>>>>>> master
